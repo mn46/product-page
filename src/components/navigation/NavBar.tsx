@@ -9,7 +9,6 @@ const NavBar = () => {
         <Navigation />
       </div>
       <Cart />
-      {/* profile */}
     </nav>
   );
 };
