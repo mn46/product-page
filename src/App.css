@@ -6,3 +6,9 @@
   margin: 0;
   font-family: "Kumbh Sans", sans-serif;
 }
+
+@layer utilities {
+  .active-menu-item {
+    @apply border-b-4 border-b-primaryOrange;
+  }
+}
