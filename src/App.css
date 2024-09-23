@@ -11,4 +11,12 @@
   .active-menu-item {
     @apply border-b-4 border-b-primaryOrange;
   }
+
+  .primary {
+    @apply bg-primaryOrange text-white shadow-lg shadow-primaryOrange;
+  }
+
+  .secondary {
+    @apply bg-lightGrayishBlue text-primaryOrange;
+  }
 }
