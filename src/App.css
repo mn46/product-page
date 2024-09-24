@@ -13,10 +13,10 @@
   }
 
   .primary {
-    @apply bg-primaryOrange text-white shadow-lg shadow-primaryOrange;
+    @apply bg-primaryOrange text-white hover:opacity-70 hover:shadow-lg hover:shadow-primaryOrange;
   }
 
   .secondary {
-    @apply bg-lightGrayishBlue text-primaryOrange;
+    @apply bg-lightGrayishBlue text-primaryOrange hover:opacity-70;
   }
 }
