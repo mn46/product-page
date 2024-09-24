@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 
 const NavBar = () => {
   return (
-    <nav className="flex flex-row justify-between items-center mx-10 h-20 border-b-2 border-b-grayishBlue">
+    <nav className="flex flex-row justify-between items-center h-20 border-b-2 border-b-grayishBlue">
       <div className="flex flex-row gap-10 items-center h-full">
         <p className="font-black text-4xl">sneakers</p>
         <Navigation />

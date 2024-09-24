@@ -4,5 +4,17 @@
   "brand": "Sneaker Company",
   "price": 125,
   "discount": 50,
-  "inStock": true
+  "inStock": true,
+  "images": [
+    "/images/fall-limited-sneaker-edition-1.jpg",
+    "/images/fall-limited-sneaker-edition-2.jpg",
+    "/images/fall-limited-sneaker-edition-3.jpg",
+    "/images/fall-limited-sneaker-edition-4.jpg"
+  ],
+  "thumbnails": [
+    "/images/fall-limited-sneaker-edition-1-thumbnail.jpg",
+    "/images/fall-limited-sneaker-edition-2-thumbnail.jpg",
+    "/images/fall-limited-sneaker-edition-3-thumbnail.jpg",
+    "/images/fall-limited-sneaker-edition-4-thumbnail.jpg"
+  ]
 }

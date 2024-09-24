@@ -6,5 +6,7 @@ export type Product = {
   price: number;
   discount: number;
   inStock: boolean;
+  images: string[];
+  thumbnails: string[];
 };
 // cart type?

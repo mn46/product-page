@@ -4,10 +4,10 @@ import ProductDetails from "./components/productDetails/ProductDetails";
 
 function App() {
   return (
-    <>
+    <div className="mx-10">
       <NavBar />
       <ProductDetails />
-    </>
+    </div>
   );
 }
 
