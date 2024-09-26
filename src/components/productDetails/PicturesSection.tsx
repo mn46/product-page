@@ -35,7 +35,7 @@ const PicturesSection: React.FC<Props> = ({ typedProductData }) => {
               <img
                 src={thumbnail}
                 alt={typedProductData.name}
-                className={`min-w-0 ${
+                className={`min-w-0 hover:opacity-40 ${
                   selectedImage === imageSource && "opacity-40"
                 }`}
               />
