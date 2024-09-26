@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Burgermenu from "/icons/burgermenu.svg";
 import MenuItem from "./MenuItem";
-import BurgerMenuIcon from "../icons/BurgerMenuIcon";
+import BurgerMenuIcon from "/icons/icon-menu.svg";
 
 const Navigation: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -14,7 +13,7 @@ const Navigation: React.FC = () => {
         className={isExpanded ? "hidden" : "block md:hidden"}
         onClick={() => setIsExpanded(true)}
       >
-        <BurgerMenuIcon className="w-8 h-auto" />
+        <img src={BurgerMenuIcon} alt="Burger menu icon" />
       </button>
       <div
         className={`h-full ${

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CartIcon from "../icons/CartIcon";
+import CartIcon from "/icons/icon-cart.svg";
 
 const Cart = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     <>
       <button onClick={() => toggleIsExpanded()}>
-        <CartIcon className="w-6 h-auto" />
+        <img src={CartIcon} />
       </button>
       {isExpanded && (
         <div>

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import productData from "../../data/products.json";
 import { Product } from "../../types/types";
 import Button from "../buttons/Button";
-import CartIcon from "../icons/CartIcon";
+import CartIcon from "/icons/icon-cart.svg";
 import PicturesSection from "./PicturesSection";
+import MinusIcon from "/icons/icon-minus.svg";
+import PlusIcon from "/icons/icon-plus.svg";
 
 const ProductDetails: React.FC = () => {
   const [typedData, setTypedData] = useState<Product | null>(null);
@@ -62,7 +64,7 @@ const ProductDetails: React.FC = () => {
                 onClick={() => handleDecrement()}
                 className="font-bold text-2xl"
               >
-                -
+                <img src={MinusIcon} alt="Minus icon" />
               </Button>
               {amount}
               <Button
@@ -70,7 +72,7 @@ const ProductDetails: React.FC = () => {
                 onClick={() => handleIncrement()}
                 className="font-bold text-2xl"
               >
-                +
+                <img src={PlusIcon} alt="Plus icon" />
               </Button>
             </div>
 
@@ -78,7 +80,7 @@ const ProductDetails: React.FC = () => {
               variant="primary"
               className="flex flex-row gap-2 items-center"
             >
-              <CartIcon className="w-5 h-auto fill-white" />
+              <img src={CartIcon} />
               Add to cart
             </Button>
           </div>
