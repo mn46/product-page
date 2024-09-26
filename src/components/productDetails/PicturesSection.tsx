@@ -26,13 +26,17 @@ const PicturesSection: React.FC<Props> = ({ typedProductData }) => {
             thumbnail.lastIndexOf("-")
           )}.jpg`;
           return (
-            <button onClick={() => setSelectedImage(imageSource)}>
+            <button
+              onClick={() => setSelectedImage(imageSource)}
+              className={`w-max h-max rounded-xl overflow-hidden  ${
+                selectedImage === imageSource && "border-2 border-primaryOrange"
+              }`}
+            >
               <img
                 src={thumbnail}
                 alt={typedProductData.name}
-                className={`rounded-xl min-w-0 ${
-                  selectedImage === imageSource &&
-                  "opacity-40 border-2 border-primaryOrange"
+                className={`min-w-0 ${
+                  selectedImage === imageSource && "opacity-40"
                 }`}
               />
             </button>
