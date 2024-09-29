@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import productData from "../../data/products.json";
 import { Product } from "../../types/types";
 import Button from "../buttons/Button";
-import CartIcon from "/icons/icon-cart.svg";
+import CartIcon from "/icons/icon-cart-white.svg";
 import PicturesSection from "./PicturesSection";
 import MinusIcon from "/icons/icon-minus.svg";
 import PlusIcon from "/icons/icon-plus.svg";
+import PicturesModal from "./PicturesModal";
 
 const ProductDetails: React.FC = () => {
   const [typedData, setTypedData] = useState<Product | null>(null);
   const [amount, setAmount] = useState<number>(0);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (productData) setTypedData(productData);
@@ -26,8 +28,11 @@ const ProductDetails: React.FC = () => {
 
   return (
     typedData && (
-      <div className="grid md:grid-flow-col gap-32 mt-10 mx-5">
-        <PicturesSection typedProductData={typedData} />
+      <div className="grid lg:grid-cols-2 gap-32 mt-10 mx-5">
+        <PicturesSection
+          typedProductData={typedData}
+          setIsModalOpen={setIsModalOpen}
+        />
         <div className="flex flex-col gap-5">
           <section className="flex flex-col gap-5">
             <h4 className="uppercase text-primaryOrange text-sm font-semibold">
@@ -85,6 +90,15 @@ const ProductDetails: React.FC = () => {
             </Button>
           </div>
         </div>
+        {isModalOpen && (
+          <PicturesModal handleClose={() => setIsModalOpen(false)}>
+            <PicturesSection
+              typedProductData={typedData}
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+            />
+          </PicturesModal>
+        )}
       </div>
     )
   );
