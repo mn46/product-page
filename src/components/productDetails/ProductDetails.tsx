@@ -28,13 +28,13 @@ const ProductDetails: React.FC = () => {
 
   return (
     typedData && (
-      <div className="grid md:grid-cols-2 lg:grid-cols-[30vw_1fr] md:gap-10 lg:gap-32 mt-10 md:mx-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-[30vw_1fr] md:gap-10 lg:gap-32 mt-10 md:mx-5 pb-10 md:pb-0">
         <PicturesSection
           typedProductData={typedData}
           setIsModalOpen={setIsModalOpen}
         />
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 mx-10 md:mx-0 mt-8 md:mt-0">
           <section className="flex flex-col gap-5">
             <h4 className="uppercase text-primaryOrange text-sm font-semibold">
               {typedData.brand}
@@ -44,7 +44,7 @@ const ProductDetails: React.FC = () => {
             </h2>
             <p className="text-darkGrayishBlue">{typedData.description}</p>
 
-            <div>
+            <div className="flex flex-row justify-between md:flex-col md:justify-normal">
               <div className="flex flex-row gap-3 items-center">
                 <p className="text-2xl font-bold text-darkBlue">
                   ${typedData.price}
@@ -64,7 +64,7 @@ const ProductDetails: React.FC = () => {
           </section>
 
           <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-            <div className="md:w-28 flex flex-row justify-between items-center bg-lightGrayishBlue rounded-lg">
+            <div className="py-2 md:w-28 flex flex-row justify-between items-center bg-lightGrayishBlue rounded-lg">
               <Button
                 variant="secondary"
                 onClick={() => handleDecrement()}
