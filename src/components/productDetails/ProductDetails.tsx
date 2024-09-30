@@ -84,7 +84,7 @@ const ProductDetails: React.FC = () => {
 
             <Button
               variant="primary"
-              className="flex flex-row gap-2 items-center"
+              className="flex flex-row gap-2 items-center justify-center"
             >
               <img src={CartIcon} />
               Add to cart
