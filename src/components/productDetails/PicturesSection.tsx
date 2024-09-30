@@ -1,5 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import { Product } from "../../types/types";
+import Previous from "/icons/icon-previous.svg";
+import Next from "/icons/icon-next.svg";
 
 interface Props {
   typedProductData: Product;
@@ -16,27 +18,73 @@ const PicturesSection: React.FC<Props> = ({
     typedProductData.images[0]
   );
 
+  const getNextImage = () => {
+    const currentImageIndex = typedProductData.images.indexOf(selectedImage);
+
+    console.log("currentImageIndex", currentImageIndex);
+
+    if (currentImageIndex === typedProductData.images.length - 1) {
+      setSelectedImage(typedProductData.images[0]);
+    } else {
+      setSelectedImage(typedProductData.images[currentImageIndex + 1]);
+    }
+  };
+
+  const getPreviousImage = () => {
+    const currentImageIndex = typedProductData.images.indexOf(selectedImage);
+
+    if (currentImageIndex === 0) {
+      console.log(
+        "typedProductData.images.length - 1",
+        typedProductData.images.length - 1
+      );
+      setSelectedImage(
+        typedProductData.images[typedProductData.images.length - 1]
+      );
+    } else {
+      setSelectedImage(typedProductData.images[currentImageIndex - 1]);
+    }
+  };
+
   return (
     <div>
       <div
         className={`flex flex-col w-full gap-8 ${
           isModalOpen &&
-          "absolute max-w-[35vw] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
+          "absolute md:max-w-[35vw] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
         }`}
       >
-        <button
-          onClick={() => {
-            if (setIsModalOpen) setIsModalOpen(true);
-          }}
-        >
-          <img
-            src={selectedImage}
-            alt={typedProductData.name}
-            className="rounded-xl"
-          />
-        </button>
+        <div className="relative w-full">
+          <button
+            className={`bg-white rounded-full p-4 top-[50%] left-2 md:left-0 md:-translate-x-[50%] -translate-y-[50%] shadow-lg ${
+              isModalOpen ? "absolute" : "absolute md:hidden"
+            }`}
+            onClick={() => getPreviousImage()}
+          >
+            <img src={Previous} alt="Arrow left icon" />
+          </button>
+          <button
+            onClick={() => {
+              if (setIsModalOpen) setIsModalOpen(true);
+            }}
+          >
+            <img
+              src={selectedImage}
+              alt={typedProductData.name}
+              className="md:rounded-xl w-full h-auto"
+            />
+          </button>
+          <button
+            className={`bg-white rounded-full p-4 absolute top-[50%] right-2 md:right-0 md:translate-x-[50%] -translate-y-[50%] shadow-lg ${
+              isModalOpen ? "absolute" : "absolute md:hidden"
+            }`}
+            onClick={() => getNextImage()}
+          >
+            <img src={Next} alt="Arrow right icon" />
+          </button>
+        </div>
 
-        <div className="w-full flex flex-row gap-8">
+        <div className="w-full hidden md:flex flex-row gap-8">
           {typedProductData.thumbnails.map((thumbnail) => {
             const imageSource = `${thumbnail.slice(
               0,
