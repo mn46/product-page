@@ -21,8 +21,6 @@ const PicturesSection: React.FC<Props> = ({
   const getNextImage = () => {
     const currentImageIndex = typedProductData.images.indexOf(selectedImage);
 
-    console.log("currentImageIndex", currentImageIndex);
-
     if (currentImageIndex === typedProductData.images.length - 1) {
       setSelectedImage(typedProductData.images[0]);
     } else {
@@ -34,10 +32,6 @@ const PicturesSection: React.FC<Props> = ({
     const currentImageIndex = typedProductData.images.indexOf(selectedImage);
 
     if (currentImageIndex === 0) {
-      console.log(
-        "typedProductData.images.length - 1",
-        typedProductData.images.length - 1
-      );
       setSelectedImage(
         typedProductData.images[typedProductData.images.length - 1]
       );
