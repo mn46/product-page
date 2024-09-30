@@ -28,11 +28,12 @@ const ProductDetails: React.FC = () => {
 
   return (
     typedData && (
-      <div className="grid lg:grid-cols-2 gap-32 mt-10 md:mx-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-[30vw_1fr] md:gap-10 lg:gap-32 mt-10 md:mx-5">
         <PicturesSection
           typedProductData={typedData}
           setIsModalOpen={setIsModalOpen}
         />
+
         <div className="flex flex-col gap-5">
           <section className="flex flex-col gap-5">
             <h4 className="uppercase text-primaryOrange text-sm font-semibold">

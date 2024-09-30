@@ -43,7 +43,7 @@ const PicturesSection: React.FC<Props> = ({
   return (
     <div>
       <div
-        className={`flex flex-col w-full gap-8 ${
+        className={`flex flex-col w-full md:gap-4 lg:gap-6 ${
           isModalOpen &&
           "absolute md:max-w-[35vw] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
         }`}
@@ -80,7 +80,7 @@ const PicturesSection: React.FC<Props> = ({
           </button>
         </div>
 
-        <div className="w-full hidden md:flex flex-row gap-8">
+        <div className="w-full hidden md:flex flex-row md:gap-4 lg:gap-6">
           {typedProductData.thumbnails.map((thumbnail) => {
             const imageSource = `${thumbnail.slice(
               0,
