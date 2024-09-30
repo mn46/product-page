@@ -57,6 +57,7 @@ const PicturesSection: React.FC<Props> = ({
           >
             <img src={Previous} alt="Arrow left icon" />
           </button>
+
           <button
             onClick={() => {
               if (setIsModalOpen) setIsModalOpen(true);
@@ -68,6 +69,7 @@ const PicturesSection: React.FC<Props> = ({
               className="md:rounded-xl w-full h-auto"
             />
           </button>
+
           <button
             className={`bg-white rounded-full p-4 absolute top-[50%] right-2 md:right-0 md:translate-x-[50%] -translate-y-[50%] shadow-lg ${
               isModalOpen ? "absolute" : "absolute md:hidden"
