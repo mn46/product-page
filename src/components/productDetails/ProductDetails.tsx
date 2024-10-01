@@ -26,6 +26,17 @@ const ProductDetails: React.FC = () => {
     setAmount((prev) => --prev);
   };
 
+  const handleAddToCart = () => {
+    localStorage.setItem(
+      "cart",
+      JSON.stringify({
+        amount: amount,
+        product: productData,
+      })
+    );
+    alert("Item added to cart");
+  };
+
   return (
     typedData && (
       <div className="grid md:grid-cols-2 lg:grid-cols-[30vw_1fr] md:gap-10 lg:gap-32 mt-10 md:mx-5 pb-10 md:pb-0">
@@ -85,6 +96,7 @@ const ProductDetails: React.FC = () => {
             <Button
               variant="primary"
               className="flex flex-row gap-2 items-center justify-center"
+              onClick={() => handleAddToCart()}
             >
               <img src={CartIcon} />
               Add to cart

@@ -1,4 +1,3 @@
-// product type
 export type Product = {
   name: string;
   description: string;
@@ -9,4 +8,5 @@ export type Product = {
   images: string[];
   thumbnails: string[];
 };
-// cart type?
+
+export type Cart = { amount: number; product: Product };
