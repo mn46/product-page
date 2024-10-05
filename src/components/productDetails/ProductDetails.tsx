@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import productData from "../../data/products.json";
 import { Product } from "../../types/types";
 import Button from "../buttons/Button";
@@ -7,11 +7,14 @@ import PicturesSection from "./PicturesSection";
 import MinusIcon from "/icons/icon-minus.svg";
 import PlusIcon from "/icons/icon-plus.svg";
 import PicturesModal from "./PicturesModal";
+import { CartContext } from "../../App";
 
 const ProductDetails: React.FC = () => {
   const [typedData, setTypedData] = useState<Product | null>(null);
   const [amount, setAmount] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const { setCart } = useContext(CartContext);
 
   useEffect(() => {
     if (productData) setTypedData(productData);
@@ -27,6 +30,11 @@ const ProductDetails: React.FC = () => {
   };
 
   const handleAddToCart = () => {
+    setCart({
+      amount: amount,
+      product: productData,
+    });
+
     localStorage.setItem(
       "cart",
       JSON.stringify({

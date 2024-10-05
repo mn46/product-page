@@ -9,4 +9,4 @@ export type Product = {
   thumbnails: string[];
 };
 
-export type Cart = { amount: number; product: Product };
+export type Cart = { amount: number; product: Product | null };
