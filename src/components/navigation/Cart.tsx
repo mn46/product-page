@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartIcon from "/icons/icon-cart.svg";
 import CartItem from "./CartItem";
 import { CartContext } from "../../App";
@@ -6,7 +6,12 @@ import { CartContext } from "../../App";
 const Cart = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
-  const { cart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
+
+  useEffect(() => {
+    const cartInLocalStorage = localStorage.getItem("cart");
+    if (cartInLocalStorage) setCart(JSON.parse(cartInLocalStorage));
+  }, [setCart]);
 
   const toggleIsExpanded = () => {
     setIsExpanded((prev) => !prev);
@@ -28,10 +33,7 @@ const Cart = () => {
           <div className="border-t-grayishBlue border-t">
             {cart ? (
               <ul>
-                <CartItem
-                  cartData={cart}
-                  onClose={() => setIsExpanded(false)}
-                />
+                <CartItem onClose={() => setIsExpanded(false)} />
               </ul>
             ) : (
               <p className="text-center">Your cart is empty.</p>
