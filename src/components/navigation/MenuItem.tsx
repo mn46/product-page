@@ -21,7 +21,9 @@ const MenuItem: React.FC<Props> = ({ text }) => {
         isActive && "active-menu-item"
       }`}
     >
-      <a href={`/${text}`}>{text}</a>
+      <a href={`/${text}`} className="font-semibold capitalize">
+        {text}
+      </a>
     </li>
   );
 };
