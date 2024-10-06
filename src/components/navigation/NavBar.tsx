@@ -3,10 +3,15 @@ import Navigation from "./Navigation";
 
 const NavBar = () => {
   return (
-    <nav className="flex flex-row justify-between items-center h-20 border-b border-b-grayishBlue">
+    <nav className="px-5 md:px-10 flex flex-row justify-between items-center h-20 border-b border-b-grayishBlue">
       <div className="flex flex-row gap-10 items-center h-full">
+        <div className="md:hidden">
+          <Navigation />
+        </div>
         <p className="font-black text-4xl">sneakers</p>
-        <Navigation />
+        <div className="hidden md:block">
+          <Navigation />
+        </div>
       </div>
       <Cart />
     </nav>
