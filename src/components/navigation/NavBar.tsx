@@ -9,7 +9,7 @@ const NavBar = () => {
           <Navigation />
         </div>
         <p className="font-black text-4xl">sneakers</p>
-        <div className="hidden md:block">
+        <div className="hidden md:block md:h-full">
           <Navigation />
         </div>
       </div>
