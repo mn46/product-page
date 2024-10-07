@@ -28,15 +28,17 @@ const Cart = () => {
         <img src={CartIcon} />
       </button>
       {isExpanded && (
-        <div className="absolute right-0 bg-white rounded-xl shadow-xl min-w-60 w-max min-h-40">
+        <div className="absolute z-10 right-0 top-16 md:top-8 bg-white rounded-xl shadow-2xl min-w-60 w-max min-h-40 grid grid-rows-[3rem_1fr]">
           <h3 className="px-5 py-3">Cart</h3>
-          <div className="border-t-grayishBlue border-t">
+          <div className="border-t-grayishBlue border-t h-full">
             {cart ? (
               <ul>
                 <CartItem onClose={() => setIsExpanded(false)} />
               </ul>
             ) : (
-              <p className="text-center">Your cart is empty.</p>
+              <div className="h-full flex items-center justify-center">
+                <p className="text-center">Your cart is empty.</p>
+              </div>
             )}
           </div>
         </div>

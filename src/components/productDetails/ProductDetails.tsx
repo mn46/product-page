@@ -47,7 +47,7 @@ const ProductDetails: React.FC = () => {
 
   return (
     typedData && (
-      <div className="grid md:grid-cols-2 lg:grid-cols-[30vw_1fr] md:gap-10 lg:gap-32 mt-10 md:mx-5 pb-10 md:pb-0">
+      <div className="grid md:grid-cols-2 lg:grid-cols-[30vw_1fr] md:gap-10 lg:gap-32 md:mt-10 md:mx-5 pb-10 md:pb-0">
         <PicturesSection
           typedProductData={typedData}
           setIsModalOpen={setIsModalOpen}
