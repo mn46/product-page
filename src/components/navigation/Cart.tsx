@@ -28,7 +28,7 @@ const Cart = () => {
         <img src={CartIcon} />
       </button>
       {isExpanded && (
-        <div className="absolute z-10 right-0 top-16 md:top-8 bg-white rounded-xl shadow-2xl min-w-60 w-max min-h-40 grid grid-rows-[3rem_1fr]">
+        <div className="absolute z-10 right-0 top-16 md:top-8 bg-white rounded-xl shadow-2xl min-w-[90vw] md:min-w-60 w-max min-h-40 grid grid-rows-[3rem_1fr]">
           <h3 className="px-5 py-3">Cart</h3>
           <div className="border-t-grayishBlue border-t h-full">
             {cart ? (
