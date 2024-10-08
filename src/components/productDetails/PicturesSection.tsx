@@ -89,17 +89,22 @@ const PicturesSection: React.FC<Props> = ({
             return (
               <button
                 onClick={() => setSelectedImage(imageSource)}
-                className={`w-max h-max rounded-xl overflow-hidden ${
+                className={`relative w-max h-max rounded-xl overflow-hidden ${
                   selectedImage === imageSource &&
                   "border-2 border-primaryOrange"
                 }`}
               >
+                <div
+                  className={`absolute bg-white top-0 left-0 w-full h-full ${
+                    selectedImage === imageSource
+                      ? "opacity-60"
+                      : "opacity-0 hover:opacity-60"
+                  }`}
+                ></div>
                 <img
                   src={thumbnail}
                   alt={typedProductData.name}
-                  className={`min-w-0 hover:opacity-40 ${
-                    selectedImage === imageSource && "opacity-40"
-                  }`}
+                  className="min-w-0"
                 />
               </button>
             );
