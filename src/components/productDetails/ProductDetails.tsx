@@ -31,6 +31,8 @@ const ProductDetails: React.FC = () => {
   };
 
   const handleAddToCart = () => {
+    if (amount === 0) return;
+
     cartContext?.setCart({
       amount: amount,
       product: productData,
