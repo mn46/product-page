@@ -7,34 +7,35 @@ interface Props {
 }
 
 const CartItem: React.FC<Props> = ({ onClose }) => {
-  const { cart, setCart } = useContext(CartContext);
+  const cartContext = useContext(CartContext);
 
   const handleDelete = () => {
     localStorage.removeItem("cart");
-    setCart(null);
+    cartContext?.setCart(null);
     onClose();
   };
 
   return (
-    cart.product && (
+    cartContext?.cart &&
+    cartContext?.cart.product && (
       <li className="p-4 flex flex-row gap-2">
         <img
-          src={cart.product.thumbnails[0]}
-          alt={cart.product.name}
+          src={cartContext?.cart.product.thumbnails[0]}
+          alt={cartContext?.cart.product.name}
           className="rounded-lg max-w-16 h-auto"
         />
         <div>
-          <h4>{cart.product.name}</h4>
+          <h4>{cartContext?.cart.product.name}</h4>
           <div className="flex flex-row justify-between">
-            {cart.amount ? (
+            {cartContext?.cart.amount ? (
               <p>
-                ${cart.product.price} x {cart.amount}{" "}
+                ${cartContext?.cart.product.price} x {cartContext?.cart.amount}{" "}
                 <span className="font-bold">
-                  ${cart.product.price * cart.amount}
+                  ${cartContext?.cart.product.price * cartContext?.cart.amount}
                 </span>{" "}
               </p>
             ) : (
-              <p>${cart.product.price}</p>
+              <p>${cartContext?.cart.product.price}</p>
             )}
           </div>
         </div>

@@ -6,12 +6,13 @@ import { CartContext } from "../../App";
 const Cart = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
-  const { cart, setCart } = useContext(CartContext);
+  const cartContext = useContext(CartContext);
 
   useEffect(() => {
     const cartInLocalStorage = localStorage.getItem("cart");
-    if (cartInLocalStorage) setCart(JSON.parse(cartInLocalStorage));
-  }, [setCart]);
+    if (cartInLocalStorage)
+      cartContext?.setCart(JSON.parse(cartInLocalStorage));
+  }, [cartContext?.setCart]);
 
   const toggleIsExpanded = () => {
     setIsExpanded((prev) => !prev);
@@ -20,9 +21,9 @@ const Cart = () => {
   return (
     <div className="relative">
       <button className="relative" onClick={() => toggleIsExpanded()}>
-        {cart?.amount > 0 && (
+        {cartContext?.cart && cartContext?.cart.amount > 0 && (
           <div className="absolute -top-2 -right-4 rounded-full px-2 bg-primaryOrange text-white text-xs">
-            {cart?.amount}
+            {cartContext?.cart?.amount}
           </div>
         )}
         <img src={CartIcon} />
@@ -31,7 +32,7 @@ const Cart = () => {
         <div className="absolute z-10 right-0 top-16 md:top-8 bg-white rounded-xl shadow-2xl min-w-[90vw] md:min-w-60 w-max min-h-40 grid grid-rows-[3rem_1fr]">
           <h3 className="px-5 py-3">Cart</h3>
           <div className="border-t-grayishBlue border-t h-full">
-            {cart ? (
+            {cartContext?.cart ? (
               <ul>
                 <CartItem onClose={() => setIsExpanded(false)} />
               </ul>
