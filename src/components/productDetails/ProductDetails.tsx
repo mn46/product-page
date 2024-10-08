@@ -14,7 +14,7 @@ const ProductDetails: React.FC = () => {
   const [amount, setAmount] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const { setCart } = useContext(CartContext);
+  const cartContext = useContext(CartContext);
 
   useEffect(() => {
     if (productData) setTypedData(productData);
@@ -30,7 +30,7 @@ const ProductDetails: React.FC = () => {
   };
 
   const handleAddToCart = () => {
-    setCart({
+    cartContext?.setCart({
       amount: amount,
       product: productData,
     });
