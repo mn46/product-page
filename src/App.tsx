@@ -13,7 +13,7 @@ function App() {
   const [cart, setCart] = useState<Cart | null>(null);
 
   return (
-    <div className="md:mx-10 lg:mx-32 md:p-0 xl:mx-auto max-w-[1320px]">
+    <div className="md:mx-10 lg:mx-40 md:p-0 max-w-[1320px]">
       <CartContext.Provider value={{ cart, setCart }}>
         <NavBar />
         <ProductDetails />
